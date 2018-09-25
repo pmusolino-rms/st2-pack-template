@@ -29,7 +29,7 @@ formats:
 #      footer_icon: "https://stackstorm.com/wp/wp-content/uploads/2015/01/favicon.png"
 result:
   format: |
-    pan_df command `{{ execution.parameters.args }}` result: {~}
+    pan_df command `{{ execution.parameters.hosts }}` host(s): {~}
     {% if execution.result.stderr %}*Stdout:* {% endif %}
     ```{{ execution.result.stdout }}```
     {% if execution.result.stderr %}*Stderr:* ```{{ execution.result.stderr }}```{% endif %}
