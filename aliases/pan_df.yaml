@@ -3,7 +3,7 @@ name: chatops.ansible_pan_df
 action_ref: st2_chatops_aliases.pan_df
 description: Show Panlogs partition usage
 formats:
-  - display: "Show /opt/panlogs on <hosts>"
+  - display: "pan_df /opt/panlogs on <hosts>"
     representation:
       - "/opt/panlogs on {{ hosts }}"
 result:
