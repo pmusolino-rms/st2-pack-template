@@ -22,6 +22,5 @@ parameters:
     required: true
   env:
     default:
-      PYTHONHTTPSVERIFY: 0
+      PYTHONHTTPSVERIFY: false
     immutable: true
-    type: number
