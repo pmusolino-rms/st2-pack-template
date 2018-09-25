@@ -22,5 +22,5 @@ parameters:
     required: true
   env:
     default:
-      PYTHONHTTPSVERIFY=0
+      PYTHONHTTPSVERIFY: 0
     immutable: true
