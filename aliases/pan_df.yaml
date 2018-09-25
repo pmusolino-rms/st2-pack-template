@@ -1,5 +1,5 @@
 ---
-name: chatops.ansible_package_update
+name: chatops.ansible_pan_df
 action_ref: st2_chatops_aliases.pan_df
 description: Show Panlogs partition usage
 formats:

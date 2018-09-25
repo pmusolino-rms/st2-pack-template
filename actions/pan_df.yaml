@@ -1,5 +1,5 @@
 ---
-name: get_pan_logs
+name: pan_df
 description: Get a readout of log partition usage
 runner_type: local-shell-cmd
 entry_point: ""
