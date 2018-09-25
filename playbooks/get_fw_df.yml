@@ -1,0 +1,16 @@
+---
+- name: DELETE ALL MP/DP LOGS ON DEVICE
+  hosts: "{{ hosts }}"
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: GET DISK USAGE
+      panos_op:
+          ip_address: '{{ inventory_hostname }}'
+          username: '{{ pan_admin }}'
+          password: '{{ pan_password }}'
+          cmd: 'show system disk-space'
+      register: df
+
+    - name: SHOW DISK USAGE
+      debug: msg="{{ df.stdout | regex_search('(..% /opt/panlogs)') }}"

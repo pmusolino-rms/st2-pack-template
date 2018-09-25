@@ -1,0 +1,29 @@
+---
+name: chatops.ansible_package_update
+action_ref: st2_chatops_aliases.pan_df
+description: Show Panlogs partition usage
+formats:
+  - display: "Show /opt/panlogs on <hosts>"
+    representation:
+      - "/opt/panlogs on {{ hosts }}"
+result:
+  format: |
+    panlogs on  `{{ execution.parameters.hosts }}` host(s): {~}
+    {% if execution.result.stderr %}
+    *Exit Status*: `{{ execution.result.return_code }}`
+    *Stderr:* ```{{ execution.result.stderr }}```
+    *Stdout:*
+    {% endif %}
+    ```{{ execution.result.stdout }}```
+  extra:
+    slack:
+      color: "{% if execution.result.succeeded %}good{% else %}danger{% endif %}"
+      fields:
+        - title: Updated nodes
+          value: "{{ execution.result.stdout|regex_replace('(?!changed=1).', '')|wordcount }}"
+          short: true
+        - title: Executed in
+          value: ":timer_clock: {{ execution.elapsed_seconds | to_human_time_from_seconds }}"
+          short: true
+      footer: "{{ execution.id }}"
+      footer_icon: "https://stackstorm.com/wp/wp-content/uploads/2015/01/favicon.png"
