@@ -1,5 +1,5 @@
 ---
-- name: DELETE ALL MP/DP LOGS ON DEVICE
+- name: GET AND DISPLAY DISK USAGE FOR LOG PARTITION
   hosts: "{{ hosts }}"
   connection: local
   gather_facts: false
