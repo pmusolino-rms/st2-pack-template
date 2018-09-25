@@ -20,3 +20,7 @@ parameters:
     description: "Ansible hosts"
     type: string
     required: true
+  env:
+    default:
+      PYTHONHTTPSVERIFY=0
+    immutable: true
