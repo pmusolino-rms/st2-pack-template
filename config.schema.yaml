@@ -1,6 +1,0 @@
-### Place configuration data for your pack here.
----
-  api_key:
-    description: "API key"
-    type: "string"
-    required: true
